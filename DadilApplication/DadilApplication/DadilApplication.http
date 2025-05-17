@@ -1,0 +1,6 @@
+@DadilApplication_HostAddress = http://localhost:5276
+
+GET {{DadilApplication_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

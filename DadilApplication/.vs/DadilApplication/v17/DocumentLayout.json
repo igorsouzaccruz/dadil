@@ -1,0 +1,121 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Igor\\unifor.estudo\\dadil\\DadilApplication\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1B26B299-E0B6-470B-9845-D6A1C068C0E6}|DadilApplication\\DadilApplication.csproj|c:\\users\\igor\\unifor.estudo\\dadil\\dadilapplication\\dadilapplication\\controllers\\denunciascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B26B299-E0B6-470B-9845-D6A1C068C0E6}|DadilApplication\\DadilApplication.csproj|solutionrelative:dadilapplication\\controllers\\denunciascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B26B299-E0B6-470B-9845-D6A1C068C0E6}|DadilApplication\\DadilApplication.csproj|c:\\users\\igor\\unifor.estudo\\dadil\\dadilapplication\\dadilapplication\\dbcontext\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B26B299-E0B6-470B-9845-D6A1C068C0E6}|DadilApplication\\DadilApplication.csproj|solutionrelative:dadilapplication\\dbcontext\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B26B299-E0B6-470B-9845-D6A1C068C0E6}|DadilApplication\\DadilApplication.csproj|c:\\users\\igor\\unifor.estudo\\dadil\\dadilapplication\\dadilapplication\\controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B26B299-E0B6-470B-9845-D6A1C068C0E6}|DadilApplication\\DadilApplication.csproj|solutionrelative:dadilapplication\\controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B951C82-8B3C-43E9-8D01-531BDB49F25C}|Base\\Base.csproj|c:\\users\\igor\\unifor.estudo\\dadil\\dadilapplication\\base\\base.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{5B951C82-8B3C-43E9-8D01-531BDB49F25C}|Base\\Base.csproj|solutionrelative:base\\base.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B26B299-E0B6-470B-9845-D6A1C068C0E6}|DadilApplication\\DadilApplication.csproj|c:\\users\\igor\\unifor.estudo\\dadil\\dadilapplication\\dadilapplication\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B26B299-E0B6-470B-9845-D6A1C068C0E6}|DadilApplication\\DadilApplication.csproj|solutionrelative:dadilapplication\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DenunciasController.cs",
+              "DocumentMoniker": "C:\\Users\\Igor\\unifor.estudo\\dadil\\DadilApplication\\DadilApplication\\Controllers\\DenunciasController.cs",
+              "RelativeDocumentMoniker": "DadilApplication\\Controllers\\DenunciasController.cs",
+              "ToolTip": "C:\\Users\\Igor\\unifor.estudo\\dadil\\DadilApplication\\DadilApplication\\Controllers\\DenunciasController.cs",
+              "RelativeToolTip": "DadilApplication\\Controllers\\DenunciasController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-16T23:58:31.232Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UsuariosController.cs",
+              "DocumentMoniker": "C:\\Users\\Igor\\unifor.estudo\\dadil\\DadilApplication\\DadilApplication\\Controllers\\UsuariosController.cs",
+              "RelativeDocumentMoniker": "DadilApplication\\Controllers\\UsuariosController.cs",
+              "ToolTip": "C:\\Users\\Igor\\unifor.estudo\\dadil\\DadilApplication\\DadilApplication\\Controllers\\UsuariosController.cs",
+              "RelativeToolTip": "DadilApplication\\Controllers\\UsuariosController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-16T23:55:33.457Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Base",
+              "DocumentMoniker": "C:\\Users\\Igor\\unifor.estudo\\dadil\\DadilApplication\\Base\\Base.csproj",
+              "RelativeDocumentMoniker": "Base\\Base.csproj",
+              "ToolTip": "C:\\Users\\Igor\\unifor.estudo\\dadil\\DadilApplication\\Base\\Base.csproj",
+              "RelativeToolTip": "Base\\Base.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-05-16T23:53:47.898Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Igor\\unifor.estudo\\dadil\\DadilApplication\\DadilApplication\\DBContext\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "DadilApplication\\DBContext\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\Igor\\unifor.estudo\\dadil\\DadilApplication\\DadilApplication\\DBContext\\AppDbContext.cs",
+              "RelativeToolTip": "DadilApplication\\DBContext\\AppDbContext.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-16T23:51:39.273Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Igor\\unifor.estudo\\dadil\\DadilApplication\\DadilApplication\\Program.cs",
+              "RelativeDocumentMoniker": "DadilApplication\\Program.cs",
+              "ToolTip": "C:\\Users\\Igor\\unifor.estudo\\dadil\\DadilApplication\\DadilApplication\\Program.cs",
+              "RelativeToolTip": "DadilApplication\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-16T23:50:58.501Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
