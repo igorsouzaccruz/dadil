@@ -8,87 +8,8 @@ import { Router } from '@angular/router';
   selector: 'app-login',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  template: `
-    <div class="min-h-screen flex items-center justify-center bg-[url('https://images.pexels.com/photos/957024/forest-trees-perspective-bright-957024.jpeg')] bg-cover bg-center">
-      <div class="absolute inset-0 bg-gradient-to-br from-primary-900/70 to-primary-800/50 backdrop-blur-sm"></div>
-      
-      <!-- Falling Leaves Animation -->
-      <div class="absolute inset-0 overflow-hidden pointer-events-none">
-        <div *ngFor="let i of [1,2,3,4,5]" 
-             class="absolute animate-leaf-fall"
-             [style.left]="(i * 20) + '%'"
-             [style.animation-delay]="(i * 2) + 's'">
-          🍃
-        </div>
-      </div>
-
-      <div class="max-w-md w-full mx-4 glassmorphism rounded-2xl overflow-hidden shadow-2xl animate-fade-in relative z-10">
-        <div class="px-8 pt-8 pb-6 text-center">
-          <div class="animate-float mb-6">
-            <div class="text-4xl mb-2">🌿</div>
-            <h1 class="text-3xl font-bold text-white mb-2">DADIL</h1>
-            <p class="text-primary-100">Denúncias Anônimas de Descarte Ilegal de Lixo</p>
-          </div>
-        </div>
-        
-        <div class="p-8">
-          <div *ngIf="errorMessage" class="mb-6 p-4 bg-error-500/20 border border-error-500/20 text-error-600 rounded-xl text-sm animate-fade-in">
-            {{ errorMessage }}
-          </div>
-          
-          <form (ngSubmit)="onSubmit()" #loginForm="ngForm" class="space-y-6">
-            <div class="form-group relative">
-              <label for="email" class="form-label text-white">Email</label>
-              <input 
-                type="email" 
-                id="email" 
-                name="email"
-                [(ngModel)]="email"
-                required
-                email
-                class="form-input bg-white/10 text-white placeholder-white/50"
-                placeholder="seu@email.com"
-              />
-            </div>
-            
-            <div class="form-group relative">
-              <label for="password" class="form-label text-white">Senha</label>
-              <input 
-                type="password" 
-                id="password" 
-                name="password"
-                [(ngModel)]="password"
-                required
-                minlength="6"
-                class="form-input bg-white/10 text-white placeholder-white/50"
-                placeholder="******"
-              />
-            </div>
-            
-            <button 
-              type="submit"
-              [disabled]="!loginForm.valid || isLoading"
-              class="btn btn-primary w-full group"
-            >
-              <span class="flex items-center justify-center">
-                <span *ngIf="isLoading" class="mr-2">
-                  <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                  </svg>
-                </span>
-                <span class="group-hover:translate-x-1 transition-transform">Entrar</span>
-              </span>
-            </button>
-          </form>
-          
-          <div class="mt-6 text-center text-sm text-white/70">
-            <p>Para fins de demonstração, você pode usar qualquer email e senha.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  `,
+  templateUrl: './login.component.html',
+  styleUrl: './login.component.scss',
 })
 export class LoginComponent {
   email: string = '';
