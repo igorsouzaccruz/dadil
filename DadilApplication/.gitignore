@@ -7,17 +7,30 @@
 *.sln.docstates
 
 # Build results
-
 [Dd]ebug/
 [Rr]elease/
 x64/
 [Bb]in/
 [Oo]bj/
 
+# Ignorar bin/obj específicos de projetos
+Base/bin/
+Base/obj/
+Core/bin/
+Core/obj/
+DadilApplication/bin/
+DadilApplication/obj/
+
+# Ignorar arquivos compilados
+*.dll
+*.pdb
+*.exe
+
 # MSTest test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
 
+# Arquivos temporários de compilação
 *_i.c
 *_p.c
 *_i.h
@@ -25,7 +38,6 @@ x64/
 *.meta
 *.obj
 *.pch
-*.pdb
 *.pgc
 *.pgd
 *.rsp
@@ -40,7 +52,6 @@ x64/
 *.vssscc
 .builds
 *.pidb
-*.log
 *.svclog
 *.scc
 
@@ -74,9 +85,7 @@ publish/
 *.azurePubxml
 
 # NuGet Packages Directory
-## TODO: If you have NuGet Package Restore enabled, uncomment the next line
 packages/
-## TODO: If the tool you use requires repositories.config, also uncomment the next line
 !packages/repositories.config
 
 # Windows Azure Build Output
@@ -96,14 +105,12 @@ ClientBin/
 *~
 *.dbmdl
 *.[Pp]ublish.xml
-
 *.publishsettings
 
 # RIA/Silverlight projects
 Generated_Code/
 
-# Backup & report files from converting an old project file to a newer
-# Visual Studio version. Backup files are not needed, because we have git ;-)
+# Backup & upgrade files
 _UpgradeReport_Files/
 Backup*/
 UpgradeLog*.XML
@@ -113,21 +120,25 @@ UpgradeLog*.htm
 App_Data/*.mdf
 App_Data/*.ldf
 
-# =========================
-# Windows detritus
-# =========================
+# Docker
+docker-compose.override.yml
 
-# Windows image file caches
+# VS folders e arquivos locais
+.vs/
+*.dtbcache.*
+DadilApplication/.vs/
+
+# Arquivos do Visual Studio Code
+.vscode/
+
+# Windows system files
 Thumbs.db
 ehthumbs.db
-
-# Folder config file
 Desktop.ini
-
-# Recycle Bin used on file shares
 $RECYCLE.BIN/
 
-# Mac desktop service store files
+# macOS system files
 .DS_Store
 
+# NCrunch
 _NCrunch*
