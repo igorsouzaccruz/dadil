@@ -1,0 +1,82 @@
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { NavbarComponent } from '../../components/navbar/navbar.component';
+import { RegionChartComponent } from '../../components/region-chart/region-chart.component';
+import { AuthService } from '../../services/auth.service';
+
+@Component({
+  selector: 'app-dashboard',
+  standalone: true,
+  imports: [CommonModule, RouterModule, NavbarComponent, RegionChartComponent],
+  template: `
+    <app-navbar></app-navbar>
+    
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div class="mb-8 text-center sm:text-left">
+        <h1 class="text-3xl font-bold text-secondary-900 dark:text-white mb-2">Bem-vindo, {{ userEmail }}!</h1>
+        <p class="text-secondary-600 dark:text-secondary-400">O que você gostaria de fazer hoje?</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+        <!-- Card 1: Make a Report -->
+        <div class="card group hover:transform hover:scale-[1.02] transition-all duration-300 animate-fade-in">
+          <a routerLink="/new-report" class="block h-full">
+            <div class="p-6 sm:p-8 flex flex-col h-full">
+              <div class="bg-primary-100 text-primary-700 rounded-full w-14 h-14 flex items-center justify-center mb-6 group-hover:bg-primary-200 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                </svg>
+              </div>
+              <h2 class="text-2xl font-bold text-secondary-900 dark:text-white mb-3 group-hover:text-primary-700">Fazer uma denúncia</h2>
+              <p class="text-secondary-600 dark:text-secondary-400 mb-6">Ajude a proteger o meio ambiente denunciando descartes irregulares de lixo e outros problemas ambientais.</p>
+              <div class="mt-auto">
+                <span class="text-primary-600 dark:text-primary-400 font-medium flex items-center group-hover:text-primary-700">
+                  Começar agora
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </a>
+        </div>
+        
+        <!-- Card 2: My Reports -->
+        <div class="card group hover:transform hover:scale-[1.02] transition-all duration-300 animate-fade-in" style="animation-delay: 150ms;">
+          <a routerLink="/my-reports" class="block h-full">
+            <div class="p-6 sm:p-8 flex flex-col h-full">
+              <div class="bg-accent-100 text-accent-700 rounded-full w-14 h-14 flex items-center justify-center mb-6 group-hover:bg-accent-200 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                </svg>
+              </div>
+              <h2 class="text-2xl font-bold text-secondary-900 dark:text-white mb-3 group-hover:text-accent-700">Minhas denúncias</h2>
+              <p class="text-secondary-600 dark:text-secondary-400 mb-6">Veja o histórico e status de todas as suas denúncias ambientais reportadas anteriormente.</p>
+              <div class="mt-auto">
+                <span class="text-accent-600 dark:text-accent-400 font-medium flex items-center group-hover:text-accent-700">
+                  Ver denúncias
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Region Chart -->
+      <div class="animate-fade-in" style="animation-delay: 300ms;">
+        <app-region-chart></app-region-chart>
+      </div>
+    </main>
+  `,
+})
+export class DashboardComponent {
+  userEmail: string = '';
+
+  constructor(private authService: AuthService) {
+    this.userEmail = this.authService.getUserEmail().split('@')[0] || 'Usuário';
+  }
+}
