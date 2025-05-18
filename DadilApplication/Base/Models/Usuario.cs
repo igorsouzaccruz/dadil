@@ -5,7 +5,7 @@ namespace Base.models
     public class Usuario
     {
         [Key]
-        public int Id { get; set; }
+        public int UsuarioId { get; set; }
 
         [Required(ErrorMessage = "O nome é obrigatório.")]
         [MaxLength(100, ErrorMessage = "O nome deve ter no máximo 100 caracteres.")]
@@ -34,7 +34,7 @@ namespace Base.models
 
         public Usuario(int id, string nome, string email, string telefone, string senha, DateTime dataCadastro)
         {
-            Id = id;
+            UsuarioId = id;
             Nome = nome;
             Email = email;
             Telefone = telefone;

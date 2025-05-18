@@ -6,7 +6,7 @@ namespace Base.models
     public class Denuncia
     {
         [Key]
-        public int Id { get; set; }
+        public int DenunciaId { get; set; }
 
         [Required(ErrorMessage = "A descrição é obrigatória.")]
         [MaxLength(1000, ErrorMessage = "A descrição deve ter no máximo 1000 caracteres.")]
@@ -41,7 +41,7 @@ namespace Base.models
             Usuario usuario
             )
         {
-            Id = id;
+            DenunciaId = id;
             Descricao = descricao;
             Localizacao = localizacao;
             FotoUrl = fotoUrl;

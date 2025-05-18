@@ -42,7 +42,7 @@ namespace DadilApplication.Controllers.Api
         [HttpPut("{id}")]
         public async Task<IActionResult> PutDenuncia(int id, Denuncia denuncia)
         {
-            if (id != denuncia.Id)
+            if (id != denuncia.DenunciaId)
             {
                 return BadRequest();
             }
@@ -76,7 +76,7 @@ namespace DadilApplication.Controllers.Api
             _context.Denuncias.Add(denuncia);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetDenuncia", new { id = denuncia.Id }, denuncia);
+            return CreatedAtAction("GetDenuncia", new { id = denuncia.DenunciaId }, denuncia);
         }
 
         // DELETE: api/Denuncias/5
@@ -97,7 +97,7 @@ namespace DadilApplication.Controllers.Api
 
         private bool DenunciaExists(int id)
         {
-            return _context.Denuncias.Any(e => e.Id == id);
+            return _context.Denuncias.Any(e => e.DenunciaId == id);
         }
     }
 }
