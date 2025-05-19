@@ -1,35 +1,23 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Text.Json.Serialization;
+using System.Collections.ObjectModel;
+
 
 namespace Base.models
 {
     public class Usuario
     {
-        [Key]
         public int UsuarioId { get; set; }
-
-        [Required(ErrorMessage = "O nome é obrigatório.")]
-        [MaxLength(100, ErrorMessage = "O nome deve ter no máximo 100 caracteres.")]
-        public required string Nome { get; set; }
-
-        [Required(ErrorMessage = "O e-mail é obrigatório.")]
-        [EmailAddress(ErrorMessage = "E-mail inválido.")]
-        [MaxLength(150)]
-        public required string Email { get; set; }
-
-        [Required(ErrorMessage = "O telefone é obrigatório.")]
-        [Phone(ErrorMessage = "Telefone inválido.")]
-        [MaxLength(20)]
-        public required string Telefone { get; set; }
-
-        [Required(ErrorMessage = "A senha é obrigatória.")]
-        [StringLength(100, MinimumLength = 6, ErrorMessage = "A senha deve ter ao menos 6 caracteres.")]
-        public required string Senha { get; set; }
-
-        [Required]
+        public string Nome { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string Telefone { get; set; } = string.Empty;
+        public string Senha { get; set; } = string.Empty;
         public DateTime DataCadastro { get; set; }
-
+        [JsonIgnore]
+        public ICollection<Denuncia>? Denuncias { get; set; }
+  
         public Usuario()
         {
+            Denuncias = new Collection<Denuncia>();
         }
 
         public Usuario(int id, string nome, string email, string telefone, string senha, DateTime dataCadastro)
@@ -40,6 +28,7 @@ namespace Base.models
             Telefone = telefone;
             Senha = senha;
             DataCadastro = dataCadastro;
+            Denuncias = new Collection<Denuncia>();
         }
     }
 }

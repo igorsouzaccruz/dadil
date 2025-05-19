@@ -55,7 +55,8 @@ namespace DadilApplication.Controllers.Api
                 FotoUrl = request.FotoUrl,
                 Status = (StatusEnum)request.Status,
                 DataCriacao = request.DataCriacao,
-                Usuario = usuario
+                Usuario = usuario,
+                UsuarioId = request.UsuarioId
             };
 
             _context.Denuncias.Add(denuncia);
