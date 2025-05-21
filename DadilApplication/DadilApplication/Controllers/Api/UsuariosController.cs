@@ -18,7 +18,7 @@ namespace DadilApplication.Controllers.Api
 
         // GET: api/Usuarios
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Usuario>>> GetUsuarios()
+        public async Task<ActionResult<IEnumerable<Usuario>>> BuscarUsuariosAsync()
         {
             return await _context.Usuarios.ToListAsync();
         }
