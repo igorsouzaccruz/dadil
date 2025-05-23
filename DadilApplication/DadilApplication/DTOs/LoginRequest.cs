@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Base.Dtos
+namespace DadilApplication.DTOs
 {
     public record LoginRequest
     {

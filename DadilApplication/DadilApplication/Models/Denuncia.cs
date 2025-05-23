@@ -1,8 +1,8 @@
-﻿using Base.enums;
+﻿using DadilApplication.Enums;
 using System.Text.Json.Serialization;
 
 
-namespace Base.models
+namespace DadilApplication.Models
 {
     public class Denuncia
     {
@@ -21,11 +21,11 @@ namespace Base.models
         }
 
         public Denuncia(
-            int id, 
-            string descricao, 
-            string localizacao, 
-            string fotoUrl, 
-            StatusEnum status, 
+            int id,
+            string descricao,
+            string localizacao,
+            string fotoUrl,
+            StatusEnum status,
             DateTime dataCriacao,
             Usuario usuario
             )

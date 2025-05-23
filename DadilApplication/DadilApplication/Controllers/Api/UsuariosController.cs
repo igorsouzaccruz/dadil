@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Base.models;
 using DadilApplication.DBContext;
+using DadilApplication.Models;
 
 namespace DadilApplication.Controllers.Api
 {

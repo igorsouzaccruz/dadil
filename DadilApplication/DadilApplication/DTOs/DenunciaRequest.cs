@@ -1,4 +1,4 @@
-﻿namespace DadilApplication.Base.DTOs
+﻿namespace DadilApplication.DTOs
 {
     public record DenunciaRequest(
      string Descricao,

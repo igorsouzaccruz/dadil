@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Base.models;
 using DadilApplication.DBContext;
-using DadilApplication.Base.DTOs;
-using Base.enums;
 using Microsoft.AspNetCore.Authorization;
+using DadilApplication.Models;
+using DadilApplication.DTOs;
+using DadilApplication.Enums;
 
 namespace DadilApplication.Controllers.Api
 {

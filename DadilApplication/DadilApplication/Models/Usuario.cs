@@ -2,7 +2,7 @@
 using System.Collections.ObjectModel;
 
 
-namespace Base.models
+namespace DadilApplication.Models
 {
     public class Usuario
     {
@@ -14,7 +14,7 @@ namespace Base.models
         public DateTime DataCadastro { get; set; }
         [JsonIgnore]
         public ICollection<Denuncia>? Denuncias { get; set; }
-  
+
         public Usuario()
         {
             Denuncias = new Collection<Denuncia>();
