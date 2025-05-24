@@ -10,44 +10,11 @@ namespace DadilApplication.DBContext
         {
         }
 
-        public DbSet<Usuario>? Usuarios { get; set; }
         public DbSet<Denuncia>? Denuncias { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-            // -------------------- Usuario --------------------
-            modelBuilder.Entity<Usuario>(entity =>
-            {
-                entity.ToTable("usuarios");
-                entity.HasKey(u => u.UsuarioId);
-                entity.Property(u => u.UsuarioId).HasColumnName("usuarioid");
-
-                entity.Property(u => u.Nome)
-                    .IsRequired()
-                    .HasMaxLength(100)
-                    .HasColumnName("nome");
-
-                entity.Property(u => u.Email)
-                    .IsRequired()
-                    .HasMaxLength(150)
-                    .HasColumnName("email");
-
-                entity.Property(u => u.Telefone)
-                    .IsRequired()
-                    .HasMaxLength(20)
-                    .HasColumnName("telefone");
-
-                entity.Property(u => u.Senha)
-                    .IsRequired()
-                    .HasMaxLength(100)
-                    .HasColumnName("senha");
-
-                entity.Property(u => u.DataCadastro)
-                    .IsRequired()
-                    .HasColumnName("datacadastro");
-            });
 
             // -------------------- Denuncia --------------------
             modelBuilder.Entity<Denuncia>(entity =>

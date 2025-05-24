@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using System.Reflection;
 using System.Text;
 using System.Text.Json.Serialization;
 
@@ -67,17 +66,26 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 
-builder.Services.AddAuthorization();
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AdminOnly", policy => policy.RequireRole("Admin"));
+    options.AddPolicy("SuperAdminOnly", policy => policy
+                      .RequireRole("admin").RequireClaim("id", "admin"));
+    options.AddPolicy("UserOnly", policy => policy.RequireRole("User"));
+    options.AddPolicy("UserOrAdmin", policy =>
+    policy.RequireAssertion(context =>
+        context.User.HasClaim("role", "User") || context.User.HasClaim("role", "Admin")));
+});
 
-var secretKey = builder.Configuration["JWT:SecretKey"] 
+var secretKey = builder.Configuration["JWT:SecretKey"]
                     ?? throw new ArgumentException("Chave secreta inválida!!");
 
-builder.Services.AddAuthentication(options => 
+builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 }
-).AddJwtBearer(options => 
+).AddJwtBearer(options =>
 {
     options.SaveToken = true;
     options.RequireHttpsMetadata = false;

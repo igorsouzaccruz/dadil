@@ -12,10 +12,10 @@ namespace DadilApplication.Models
         public string? FotoUrl { get; set; }
         public StatusEnum Status { get; set; }
         public DateTime DataCriacao { get; set; }
-        public int UsuarioId { get; set; }
+        public string UsuarioId { get; set; } = null!;
 
         [JsonIgnore]
-        public Usuario? Usuario { get; set; }
+        public ApplicationUser? Usuario { get; set; }
         public Denuncia()
         {
         }
@@ -27,7 +27,7 @@ namespace DadilApplication.Models
             string fotoUrl,
             StatusEnum status,
             DateTime dataCriacao,
-            Usuario usuario
+            ApplicationUser usuario
             )
         {
             DenunciaId = id;

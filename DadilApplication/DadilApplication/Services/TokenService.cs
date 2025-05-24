@@ -29,7 +29,7 @@ namespace DadilApplication.Services
                                    .GetValue<string>("ValidIssuer"),
                 SigningCredentials = signingCredentials,
             };
-            
+
             var tokenHandler = new JwtSecurityTokenHandler();
             var token = tokenHandler.CreateJwtSecurityToken(tokenDescriptor);
             return token;

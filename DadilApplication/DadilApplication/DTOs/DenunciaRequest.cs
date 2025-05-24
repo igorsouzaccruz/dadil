@@ -6,6 +6,6 @@
      string? FotoUrl,
      int Status,
      DateTime DataCriacao,
-     int UsuarioId
+     string UsuarioId
  );
 }

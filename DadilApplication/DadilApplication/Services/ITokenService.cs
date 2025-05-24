@@ -5,12 +5,12 @@ namespace DadilApplication.Services
 {
     public interface ITokenService
     {
-        JwtSecurityToken GenerateAccessToken(IEnumerable<Claim> claims, 
+        JwtSecurityToken GenerateAccessToken(IEnumerable<Claim> claims,
                                              IConfiguration _config);
 
         string GenerateRefreshToken();
 
-        ClaimsPrincipal GetPrincipalFromExpiredToken(string token, 
+        ClaimsPrincipal GetPrincipalFromExpiredToken(string token,
                                                      IConfiguration _config);
     }
 }

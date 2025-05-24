@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using DadilApplication.DBContext;
+﻿using DadilApplication.DTOs;
 using DadilApplication.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 
 namespace DadilApplication.Controllers.Api
 {
@@ -9,95 +9,99 @@ namespace DadilApplication.Controllers.Api
     [ApiController]
     public class UsuariosController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly ILogger<UsuariosController> _logger;
 
-        public UsuariosController(AppDbContext context)
+        public UsuariosController(UserManager<ApplicationUser> userManager, ILogger<UsuariosController> logger)
         {
-            _context = context;
+            _userManager = userManager;
+            _logger = logger;
         }
 
         // GET: api/Usuarios
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Usuario>>> BuscarUsuariosAsync()
+        public async Task<ActionResult<IEnumerable<UsuarioResponse>>> BuscarUsuariosAsync()
         {
-            return await _context.Usuarios.ToListAsync();
+            var users = await _userManager.GetUsersInRoleAsync("user");
+            if (users is null)
+            {
+                _logger.LogInformation(2, "Error");
+                return StatusCode(StatusCodes.Status400BadRequest,
+                 new Response
+                 {
+                     Status = "Error",
+                     Message = $"Unable to get users!"
+                 });
+            }
+
+            var result = users.Select(u => new UsuarioResponse(
+                UsuarioId: u.Id,
+                Nome: u.UserName ?? string.Empty,
+                Email: u.Email ?? string.Empty,
+                Telefone: u.PhoneNumber ?? string.Empty,
+                DataCadastro: u.DataCadastro
+                ));
+
+            return Ok(result);
         }
 
         // GET: api/Usuarios/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Usuario>> GetUsuario(int id)
+        public async Task<ActionResult<UsuarioResponse>> GetUsuario(string id)
         {
-            var usuario = await _context.Usuarios.FindAsync(id);
+            var usuario = await _userManager.FindByIdAsync(id);
 
             if (usuario == null)
             {
                 return NotFound();
             }
 
-            return usuario;
+            var result = new UsuarioResponse(
+            UsuarioId: usuario.Id,
+            Nome: usuario.UserName ?? string.Empty,
+            Email: usuario.Email ?? string.Empty,
+            Telefone: usuario.PhoneNumber ?? string.Empty,
+            DataCadastro: usuario.DataCadastro
+            );
+
+            return result;
         }
 
         // PUT: api/Usuarios/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutUsuario(int id, Usuario usuario)
+        public async Task<IActionResult> PutUsuario(string id, UsuarioResponse usuario)
         {
             if (id != usuario.UsuarioId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(usuario).State = EntityState.Modified;
+            var usuarioExistente = await _userManager.FindByIdAsync(id);
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!UsuarioExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
-        // POST: api/Usuarios
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public async Task<ActionResult<Usuario>> PostUsuario(Usuario usuario)
-        {
-            _context.Usuarios.Add(usuario);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetUsuario", new { id = usuario.UsuarioId }, usuario);
-        }
-
-        // DELETE: api/Usuarios/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteUsuario(int id)
-        {
-            var usuario = await _context.Usuarios.FindAsync(id);
-            if (usuario == null)
+            if (usuarioExistente is null)
             {
                 return NotFound();
             }
+            usuarioExistente.UserName = usuario.Nome;
+            usuarioExistente.Email = usuario.Email;
+            usuarioExistente.PhoneNumber = usuario.Telefone;
 
-            _context.Usuarios.Remove(usuario);
-            await _context.SaveChangesAsync();
+            var resultado = await _userManager.UpdateAsync(usuarioExistente);
+            if (!resultado.Succeeded)
+            {
+                return BadRequest(new
+                {
+                    Status = "Error",
+                    Erros = resultado.Errors.Select(e => e.Description)
+                });
+            }
 
             return NoContent();
         }
 
-        private bool UsuarioExists(int id)
+        private async Task<bool> UsuarioExists(string id)
         {
-            return _context.Usuarios.Any(e => e.UsuarioId == id);
+            return await _userManager.FindByIdAsync(id) is not null;
         }
     }
 }
