@@ -1,4 +1,4 @@
-﻿namespace DadilApplication.Base.DTOs
+﻿namespace DadilApplication.DTOs
 {
     public record DenunciaRequest(
      string Descricao,
@@ -6,6 +6,6 @@
      string? FotoUrl,
      int Status,
      DateTime DataCriacao,
-     int UsuarioId
+     string UsuarioId
  );
 }
