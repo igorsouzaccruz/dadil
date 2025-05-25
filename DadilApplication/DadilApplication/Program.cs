@@ -13,7 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddScoped<ITokenService, TokenService>();
-
+builder.Services.AddHostedService<SeedUsersService>();
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<AppDbContext>()
