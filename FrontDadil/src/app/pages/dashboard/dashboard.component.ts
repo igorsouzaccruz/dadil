@@ -1,3 +1,4 @@
+import { JwtService } from './../../services/jwt.service';
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -13,9 +14,12 @@ import { AuthService } from '../../services/auth.service';
   styleUrl: './dashboard.component.scss',
 })
 export class DashboardComponent {
-  user: string = '';
+  user: any|null = '';
 
-  constructor(private authService: AuthService) {
- //  this.user = this.authService.getUserName;
+  constructor(private authService: AuthService, private jwtservice: JwtService) {
+   this.user = this.jwtservice.getUser()?.username;
+   console.log(this.jwtservice.getUser());
+   console.log(this.jwtservice.getDecodedToken());
+   
   }
 }

@@ -34,7 +34,6 @@ export class LoginComponent {
   onSubmit(): void {
     this.errorMessage = '';
     this.isLoading = true;
-    debugger;
 
     if (this.user && this.password) {
       this.authService.login(this.user, this.password).subscribe({
@@ -53,3 +52,5 @@ export class LoginComponent {
     }
   }
 }
+
+

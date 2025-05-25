@@ -17,7 +17,7 @@ export class AuthService {
     return this.http.post(`${this.apiUrl}/login`, body).pipe(
       tap((res: any) => {
         // Salva o token no localStorage
-        localStorage.setItem('accessToken', res.accessToken);
+        localStorage.setItem('token', res.token);
         localStorage.setItem('refreshToken', res.refreshToken);
 
         // Redireciona para o dashboard
@@ -27,11 +27,11 @@ export class AuthService {
   }
 
   isAuthenticated(): boolean {
-    return !!localStorage.getItem('accessToken');
+    return !!localStorage.getItem('token');
   }
 
   logout(): void {
-    localStorage.removeItem('accessToken');
+    localStorage.removeItem('token');
     localStorage.removeItem('refreshToken');
     this.router.navigate(['/login']);
   }
