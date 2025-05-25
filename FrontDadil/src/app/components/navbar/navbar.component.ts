@@ -13,7 +13,7 @@ import { AuthService } from '../../services/auth.service';
         <div class="flex justify-between h-16">
           <div class="flex items-center">
             <a routerLink="/dashboard" class="flex items-center">
-              <span class="text-2xl font-bold">EcoReport</span>
+              <span class="text-2xl font-bold">DADIL</span>
             </a>
           </div>
           <div class="flex items-center">
