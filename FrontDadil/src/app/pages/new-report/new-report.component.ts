@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
-import { ReportService } from '../../services/report.service';
+import { ReportService } from '../../services/denuncia.service';
 
 @Component({
   selector: 'app-new-report',
@@ -24,7 +24,7 @@ export class NewReportComponent {
     description: '',
     location: '',
     type: 'illegal_dumping',
-    imageUrl: ''
+    imageUrl: '',
   };
 
   isSubmitting = false;
