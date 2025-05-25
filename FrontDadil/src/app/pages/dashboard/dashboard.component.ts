@@ -18,8 +18,5 @@ export class DashboardComponent {
 
   constructor(private authService: AuthService, private jwtservice: JwtService) {
    this.user = this.jwtservice.getUser()?.username;
-   console.log(this.jwtservice.getUser());
-   console.log(this.jwtservice.getDecodedToken());
-   
   }
 }
