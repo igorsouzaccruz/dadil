@@ -27,16 +27,15 @@
           
           <form (ngSubmit)="onSubmit()" #loginForm="ngForm" class="space-y-6">
             <div class="form-group relative">
-              <label for="email" class="form-label text-white">Email</label>
+              <label for="user" class="form-label text-white">Usuário</label>
               <input 
-                type="email" 
-                id="email" 
-                name="email"
-                [(ngModel)]="email"
+                type="text" 
+                id="user" 
+                name="user"
+                [(ngModel)]="user"
                 required
-                email
                 class="form-input bg-white/10 text-white placeholder-white/50"
-                placeholder="seu@email.com"
+                placeholder="Digite seu usuário"
               />
             </div>
             

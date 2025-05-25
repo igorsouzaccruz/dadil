@@ -13,9 +13,9 @@ import { AuthService } from '../../services/auth.service';
   styleUrl: './dashboard.component.scss',
 })
 export class DashboardComponent {
-  userEmail: string = '';
+  user: string = '';
 
   constructor(private authService: AuthService) {
-    this.userEmail = this.authService.getUserEmail().split('@')[0] || 'Usuário';
+ //  this.user = this.authService.getUserName;
   }
 }

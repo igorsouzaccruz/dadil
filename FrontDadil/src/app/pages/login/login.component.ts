@@ -13,38 +13,43 @@ import { LoginService } from './login.service';
   styleUrl: './login.component.scss',
 })
 export class LoginComponent {
-  email: string = '';
+  user: string = '';
   password: string = '';
   errorMessage: string = '';
   isLoading: boolean = false;
 
-  constructor(private authService: AuthService, private router: Router, public loginService: LoginService ) {
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    public loginService: LoginService
+  ) {
     if (this.authService.isAuthenticated()) {
       this.router.navigate(['/dashboard']);
     }
-    this.loginService.buscarUsuarios().subscribe(usuarios => console.log(usuarios))
-
+    this.loginService
+      .buscarUsuarios()
+      .subscribe((usuarios) => console.log(usuarios));
   }
 
- onSubmit(): void {
-  this.errorMessage = '';
-  this.isLoading = true;
+  onSubmit(): void {
+    this.errorMessage = '';
+    this.isLoading = true;
+    debugger;
 
-  if (this.email && this.password) {
-    this.authService.login(this.email, this.password).subscribe({
-      next: () => {
-        this.isLoading = false;
-        // redirecionamento já acontece no service
-      },
-      error: (err) => {
-        this.errorMessage = 'Login inválido';
-        this.isLoading = false;
-      }
-    });
-  } else {
-    this.errorMessage = 'Por favor, preencha todos os campos.';
-    this.isLoading = false;
+    if (this.user && this.password) {
+      this.authService.login(this.user, this.password).subscribe({
+        next: () => {
+          this.isLoading = false;
+          // redirecionamento já acontece no service
+        },
+        error: (err) => {
+          this.errorMessage = 'Login inválido';
+          this.isLoading = false;
+        },
+      });
+    } else {
+      this.errorMessage = 'Por favor, preencha todos os campos.';
+      this.isLoading = false;
+    }
   }
-}
-
 }
