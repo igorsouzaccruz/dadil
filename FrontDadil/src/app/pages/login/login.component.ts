@@ -26,17 +26,25 @@ export class LoginComponent {
 
   }
 
-  onSubmit(): void {
-    this.errorMessage = '';
-    this.isLoading = true;
+ onSubmit(): void {
+  this.errorMessage = '';
+  this.isLoading = true;
 
-    setTimeout(() => {
-      if (this.email && this.password) {
-        this.authService.login(this.email, this.password);
-      } else {
-        this.errorMessage = 'Por favor, preencha todos os campos.';
+  if (this.email && this.password) {
+    this.authService.login(this.email, this.password).subscribe({
+      next: () => {
+        this.isLoading = false;
+        // redirecionamento já acontece no service
+      },
+      error: (err) => {
+        this.errorMessage = 'Login inválido';
+        this.isLoading = false;
       }
-      this.isLoading = false;
-    }, 1000);
+    });
+  } else {
+    this.errorMessage = 'Por favor, preencha todos os campos.';
+    this.isLoading = false;
   }
+}
+
 }
