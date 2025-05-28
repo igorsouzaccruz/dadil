@@ -1,3 +1,5 @@
+import { StatusEnum } from "./enum/status-enum";
+
 export interface Denuncia {
   denunciaId?: number;
   descricao: string;
@@ -8,8 +10,3 @@ export interface Denuncia {
   usuarioId: string;
 }
 
-export enum StatusEnum {
-  Pendente = 0,
-  EmAnalise = 1,
-  Concluida = 2
-}

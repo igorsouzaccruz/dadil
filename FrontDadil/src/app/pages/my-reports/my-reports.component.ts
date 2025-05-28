@@ -1,37 +1,41 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
-import { ReportCardComponent } from '../../components/report-card/report-card.component';
-import { ReportService, Report } from '../../services/denuncia.service';
+import { DenunciaCardComponent } from '../../components/report-card/report-card.component';
+import { DenunciaService} from '../../services/denuncia.service';
 import { Router } from '@angular/router';
+import { Denuncia } from '../../core/denuncia.model';
+import { StatusEnum } from '../../core/enum/status-enum';
 
 @Component({
   selector: 'app-my-reports',
   standalone: true,
-  imports: [CommonModule, NavbarComponent, ReportCardComponent],
+  imports: [CommonModule, NavbarComponent, DenunciaCardComponent],
   templateUrl: './my-reports.component.html',
   styleUrl: './my-reports.component.scss',
 })
 export class MyReportsComponent implements OnInit {
-  reports: Report[] = [];
+  denuncias: Denuncia[] = [];
 
-  constructor(private reportService: ReportService, private router: Router) {}
+  constructor(private reportService: DenunciaService, private router: Router) {}
 
   ngOnInit(): void {
-    this.reports = this.reportService.getAllReports();
+    this.reportService.getAllDenuncias().subscribe(denuncias => {
+      this.denuncias = denuncias;
+    });
   }
 
   getPendingCount(): number {
-    return this.reports.filter((report) => report.status === 'pending').length;
+    return this.denuncias.filter((denuncia) => denuncia.status === StatusEnum.PENDENTE).length;
   }
 
   getReviewingCount(): number {
-    return this.reports.filter((report) => report.status === 'reviewing')
+    return this.denuncias.filter((denuncia) => denuncia.status === StatusEnum.EM_ANALISE)
       .length;
   }
 
   getResolvedCount(): number {
-    return this.reports.filter((report) => report.status === 'resolved').length;
+    return this.denuncias.filter((denuncia) => denuncia.status === StatusEnum.RESOLVIDO).length;
   }
 
   goToNewReport(): void {

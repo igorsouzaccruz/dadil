@@ -129,17 +129,17 @@
 
       <!-- Reports List -->
       <div
-        *ngIf="reports.length > 0; else noReports"
+        *ngIf="denuncias.length > 0; else noReports"
         class="animate-fade-in"
         style="animation-delay: 200ms;"
       >
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div
-            *ngFor="let report of reports; let i = index"
+            *ngFor="let denuncia of denuncias; let i = index"
             class="animate-fade-in"
             [style.animation-delay.ms]="300 + i * 100"
           >
-            <app-report-card [report]="report"></app-report-card>
+            <app-denuncia-card [denuncia]="denuncia"></app-denuncia-card>
           </div>
         </div>
       </div>

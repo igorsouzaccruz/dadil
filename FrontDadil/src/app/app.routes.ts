@@ -13,7 +13,7 @@ export const routes: Routes = [
   },
   { 
     path: 'new-report', 
-    loadComponent: () => import('./pages/new-report/new-report.component').then(c => c.NewReportComponent),
+    loadComponent: () => import('./pages/new-report/new-report.component').then(c => c.DenunciaFormComponent),
     canActivate: [AuthGuard]
   },
   { 

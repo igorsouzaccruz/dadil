@@ -1,53 +1,40 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
-import { NavbarComponent } from '../../components/navbar/navbar.component';
-import { ReportService } from '../../services/denuncia.service';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { StatusEnum } from '../../core/enum/status-enum';
+import { NavbarComponent } from "../../components/navbar/navbar.component";
 
 @Component({
-  selector: 'app-new-report',
-  standalone: true,
-  imports: [CommonModule, FormsModule, NavbarComponent],
+  selector: 'app-denuncia-form',
   templateUrl: './new-report.component.html',
-  styleUrl: './new-report.component.scss',
+  imports: [NavbarComponent, FormsModule, ReactiveFormsModule],
 })
-export class NewReportComponent {
-  report: {
-    title: string;
-    description: string;
-    location: string;
-    type: 'illegal_dumping' | 'industrial_waste' | 'water_pollution' | 'other';
-    imageUrl: string;
-  } = {
-    title: '',
-    description: '',
-    location: '',
-    type: 'illegal_dumping',
-    imageUrl: '',
-  };
+export class DenunciaFormComponent implements OnInit {
+  public formulario!: FormGroup;
+  public statusOptions = [
+    { label: 'Pendente', valor: StatusEnum.PENDENTE },
+    { label: 'Em análise', valor: StatusEnum.EM_ANALISE },
+    { label: 'Resolvido', valor: StatusEnum.RESOLVIDO },
+  ];
 
-  isSubmitting = false;
-  showSuccessModal = false;
+  constructor(private fb: FormBuilder) {}
 
-  constructor(private reportService: ReportService, private router: Router) {}
-
-  onSubmit(): void {
-    this.isSubmitting = true;
-
-    // Simulate API call delay
-    setTimeout(() => {
-      this.reportService.addReport(this.report);
-      this.isSubmitting = false;
-      this.showSuccessModal = true;
-    }, 1500);
+  ngOnInit(): void {
+    this.formulario = this.fb.group({
+      descricao: ['', [Validators.required, Validators.minLength(10)]],
+      localizacao: [''],
+      fotoUrl: [''],
+      status: [null, Validators.required],
+      usuarioId: ['', Validators.required],
+    });
   }
 
-  goBack(): void {
-    this.router.navigate(['/dashboard']);
-  }
-
-  goToReports(): void {
-    this.router.navigate(['/my-reports']);
+  submit(): void {
+    if (this.formulario?.valid) {
+      const denuncia = this.formulario.value;
+      console.log('Denúncia enviada:', denuncia);
+      // Chame o serviço aqui, ex: this.denunciaService.criar(denuncia)
+    } else {
+      this.formulario?.markAllAsTouched();
+    }
   }
 }
