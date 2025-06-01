@@ -69,8 +69,6 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("AdminOnly", policy => policy.RequireRole("Admin"));
-    options.AddPolicy("SuperAdminOnly", policy => policy
-                      .RequireRole("admin").RequireClaim("id", "admin"));
     options.AddPolicy("UserOnly", policy => policy.RequireRole("User"));
     options.AddPolicy("UserOrAdmin", policy =>
     policy.RequireAssertion(context =>
