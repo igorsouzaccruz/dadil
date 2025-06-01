@@ -10,7 +10,7 @@ import { Denuncia } from '../core/denuncia.model';
   providedIn: 'root'
 })
 export class DenunciaService {
-  private apiUrl = `${environment.apiUrl}/api/Denuncias`;
+  private apiUrl = `${environment.apiUrl}/Denuncias`;
 
   constructor(private http: HttpClient, private jwtService: JwtService) {}
 

@@ -2,12 +2,12 @@
 
 
 <main class="max-w-3xl mx-auto px-4 py-8">
-  <h1 class="text-2xl font-bold text-secondary-900 mb-4">
+  <h1 class="text-2xl font-bold text-primary-300 mb-4">
     Nova Denúncia
   </h1>
   <form [formGroup]="formulario" (ngSubmit)="submit()">
     <div class="mb-4">
-      <label class="block text-secondary-700 mb-1">Descrição</label>
+      <label class="block text-primary-200 mb-1">Descrição</label>
       <textarea
         formControlName="descricao"
         class="form-input w-full"
@@ -17,7 +17,7 @@
     </div>
 
     <div class="mb-4">
-      <label class="block text-secondary-700 mb-1">Localização</label>
+      <label class="block text-primary-200 mb-1">Localização</label>
       <input
         type="text"
         formControlName="localizacao"
@@ -27,7 +27,7 @@
     </div>
 
     <div class="mb-4">
-      <label class="block text-secondary-700 mb-1">Foto (URL)</label>
+      <label class="block text-primary-200 mb-1">Foto (URL)</label>
       <input
         type="text"
         formControlName="fotoUrl"
@@ -35,7 +35,7 @@
         placeholder="URL da imagem"
       />
     </div>
-
+<!-- 
     <div class="mb-4">
       <label class="block text-secondary-700 mb-1">Status</label>
       <select formControlName="status" class="form-input w-full">
@@ -44,9 +44,9 @@
           {{ s.label }}
         </option>
       </select>
-    </div>
+    </div> -->
 
-    <div class="mb-6">
+    <!-- <div class="mb-6">
       <label class="block text-secondary-700 mb-1">ID do Usuário</label>
       <input
         type="text"
@@ -54,7 +54,7 @@
         class="form-input w-full"
         placeholder="Identificador do usuário"
       />
-    </div>
+    </div> -->
 
     <button type="submit" class="btn btn-primary w-full">
       Enviar denúncia

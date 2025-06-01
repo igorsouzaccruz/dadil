@@ -1,7 +1,11 @@
+import { Denuncia } from './../../core/denuncia.model';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { StatusEnum } from '../../core/enum/status-enum';
 import { NavbarComponent } from "../../components/navbar/navbar.component";
+import { DenunciaService } from '../../services/denuncia.service';
+import { JwtService } from '../../services/jwt.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-denuncia-form',
@@ -16,23 +20,35 @@ export class DenunciaFormComponent implements OnInit {
     { label: 'Resolvido', valor: StatusEnum.RESOLVIDO },
   ];
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private denunciaService: DenunciaService, private jwtService: JwtService, private router: Router) {}
 
   ngOnInit(): void {
     this.formulario = this.fb.group({
-      descricao: ['', [Validators.required, Validators.minLength(10)]],
+      descricao: ['', [Validators.required]],
       localizacao: [''],
       fotoUrl: [''],
-      status: [null, Validators.required],
-      usuarioId: ['', Validators.required],
+      status: [StatusEnum.PENDENTE.id],
+      usuarioId: [null],
     });
   }
 
   submit(): void {
+    debugger
     if (this.formulario?.valid) {
-      const denuncia = this.formulario.value;
+      var denuncia = this.formulario.value;
       console.log('Denúncia enviada:', denuncia);
-      // Chame o serviço aqui, ex: this.denunciaService.criar(denuncia)
+      console.log('ID do user: ', this.jwtService.getDecodedToken().id);
+      console.log('Status: ', denuncia.status);
+      console.log('Status: ', StatusEnum.PENDENTE.id);
+      
+      
+      denuncia.usuarioId = this.jwtService.getDecodedToken().id;
+
+      this.denunciaService.createDenuncia(denuncia).subscribe({
+        next: () =>{
+          this.router.navigate(['/my-reports']);
+        }
+      })
     } else {
       this.formulario?.markAllAsTouched();
     }
