@@ -57,7 +57,7 @@ namespace DadilApplication.Controllers.Api
                 Localizacao = request.Localizacao,
                 FotoUrl = request.FotoUrl,
                 Status = (StatusEnum)request.Status,
-                DataCriacao = request.DataCriacao,
+                DataCriacao = DateTime.UtcNow,
                 Usuario = usuario,
                 UsuarioId = request.UsuarioId
             };

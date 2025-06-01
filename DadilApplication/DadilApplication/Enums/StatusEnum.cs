@@ -2,8 +2,8 @@
 {
     public enum StatusEnum
     {
-        Aberta = 1,
-        EmAndamento = 2,
-        Resolvida = 3
+        Pendente = 1,
+        EmAnalise = 2,
+        Resolvido = 3
     }
 }
