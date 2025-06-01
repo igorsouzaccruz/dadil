@@ -84,7 +84,7 @@ cd dadil
 docker-compose up --build
 ```
 
-> Isso irá subir:
+### 3. Ao subir portas ocupadas
 > - Backend em ASP.NET Core na porta `5000`
 > - Frontend Angular na porta `4200`
 > - PostgreSQL na porta `5432`
