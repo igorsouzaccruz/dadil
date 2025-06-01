@@ -2,6 +2,10 @@
 
 DADIL é um sistema web completo para registrar e acompanhar denúncias anônimas sobre descarte irregular de lixo. O objetivo principal é promover a cidadania ativa, permitindo que qualquer pessoa contribua para a melhoria do ambiente urbano de forma simples e segura.
 
+## Disciplina N708-Proj aplic multiplataf etapa 2
+- Igor Souza Cruz (Matrícula: 2325198) 
+- Lucas Araújo de Almeida (Matrícula: 2325769)
+
 ## ✨ Funcionalidades
 
 - Cadastro e visualização de denúncias anônimas
@@ -18,7 +22,6 @@ DADIL é um sistema web completo para registrar e acompanhar denúncias anônima
 - ASP.NET Core 8
 - Entity Framework Core
 - PostgreSQL (via Npgsql)
-- AutoMapper
 - Swashbuckle (Swagger)
 - Identity para autenticação
 
@@ -26,7 +29,7 @@ DADIL é um sistema web completo para registrar e acompanhar denúncias anônima
 
 - Angular 17+
 - TypeScript
-- Angular Material
+- Tailwind CSS
 - SCSS
 
 ### Infraestrutura
