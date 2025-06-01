@@ -7,7 +7,8 @@ DADIL é um sistema web completo para registrar e acompanhar denúncias anônima
 - Lucas Araújo de Almeida (Matrícula: 2325769)
   
 ## Demonstração
-![Demonstração do sistema](src/assets/dadil-demo.gif)
+![Demonstração do sistema](FrontDadil/src/assets/dadil-demo.gif)
+
 
 ## ✨ Funcionalidades
 
