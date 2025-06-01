@@ -5,6 +5,10 @@ DADIL é um sistema web completo para registrar e acompanhar denúncias anônima
 ## Disciplina N708-Proj aplic multiplataf etapa 2
 - Igor Souza Cruz (Matrícula: 2325198) 
 - Lucas Araújo de Almeida (Matrícula: 2325769)
+  
+## Demonstração
+![Demonstração do sistema](FrontDadil/src/assets/dadil-demo.gif)
+
 
 ## ✨ Funcionalidades
 
