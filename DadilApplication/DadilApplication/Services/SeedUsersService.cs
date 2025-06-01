@@ -49,11 +49,11 @@ namespace DadilApplication.Services
 
                 var denuncias = new List<Denuncia>
                 {
-                    new() { Descricao = "Lixo acumulado na calçada", Localizacao = "Rua A, Bairro X", FotoUrl = null, Status = StatusEnum.Aberta, DataCriacao = DateTime.UtcNow, UsuarioId = igor.Id },
-                    new() { Descricao = "Queima de lixo a céu aberto", Localizacao = "Av B, Bairro Y", FotoUrl = null, Status = StatusEnum.Aberta, DataCriacao = DateTime.UtcNow, UsuarioId = igor.Id },
-                    new() { Descricao = "Descarte irregular em área verde", Localizacao = "Travessa C, Bairro Z", FotoUrl = null, Status = StatusEnum.EmAndamento, DataCriacao = DateTime.UtcNow, UsuarioId = lucas.Id },
-                    new() { Descricao = "Entulho jogado em via pública", Localizacao = "Rua D, Centro", FotoUrl = null, Status = StatusEnum.EmAndamento, DataCriacao = DateTime.UtcNow, UsuarioId = lucas.Id },
-                    new() { Descricao = "Acúmulo de lixo em terreno baldio", Localizacao = "Rua E, Bairro Q", FotoUrl = null, Status = StatusEnum.Aberta, DataCriacao = DateTime.UtcNow, UsuarioId = igor.Id },
+                    new() { Descricao = "Lixo acumulado na calçada", Localizacao = "Rua A, Bairro X", FotoUrl = "https://picsum.photos/200/300", Status = StatusEnum.Aberta, DataCriacao = DateTime.UtcNow, UsuarioId = igor.Id },
+                    new() { Descricao = "Queima de lixo a céu aberto", Localizacao = "Av B, Bairro Y", FotoUrl = "https://picsum.photos/200/300", Status = StatusEnum.Aberta, DataCriacao = DateTime.UtcNow, UsuarioId = igor.Id },
+                    new() { Descricao = "Descarte irregular em área verde", Localizacao = "Travessa C, Bairro Z", FotoUrl = "https://picsum.photos/200/300", Status = StatusEnum.EmAndamento, DataCriacao = DateTime.UtcNow, UsuarioId = lucas.Id },
+                    new() { Descricao = "Entulho jogado em via pública", Localizacao = "Rua D, Centro", FotoUrl = "https://picsum.photos/200/300", Status = StatusEnum.EmAndamento, DataCriacao = DateTime.UtcNow, UsuarioId = lucas.Id },
+                    new() { Descricao = "Acúmulo de lixo em terreno baldio", Localizacao = "Rua E, Bairro Q", FotoUrl = "https://picsum.photos/200/300", Status = StatusEnum.Aberta, DataCriacao = DateTime.UtcNow, UsuarioId = igor.Id },
                 };
 
                 context.Denuncias!.AddRange(denuncias);
