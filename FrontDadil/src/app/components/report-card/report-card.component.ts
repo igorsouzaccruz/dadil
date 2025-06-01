@@ -27,6 +27,6 @@ export class DenunciaCardComponent {
   }
 
   getStatusText(): string {
-    return StatusEnum.fromId(this.denuncia.status.id)?.descricao ?? '';
+    return StatusEnum.fromId(Number(this.denuncia.status))?.descricao ?? '';
   }
 }

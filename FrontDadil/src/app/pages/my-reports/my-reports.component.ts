@@ -26,16 +26,16 @@ export class MyReportsComponent implements OnInit {
   }
 
   getPendingCount(): number {
-    return this.denuncias.filter((denuncia) => denuncia.status === StatusEnum.PENDENTE).length;
+    return this.denuncias.filter((denuncia) => denuncia.status === StatusEnum.PENDENTE.id).length;
   }
 
   getReviewingCount(): number {
-    return this.denuncias.filter((denuncia) => denuncia.status === StatusEnum.EM_ANALISE)
+    return this.denuncias.filter((denuncia) => denuncia.status === StatusEnum.EM_ANALISE.id)
       .length;
   }
 
   getResolvedCount(): number {
-    return this.denuncias.filter((denuncia) => denuncia.status === StatusEnum.RESOLVIDO).length;
+    return this.denuncias.filter((denuncia) => denuncia.status === StatusEnum.RESOLVIDO.id).length;
   }
 
   goToNewReport(): void {

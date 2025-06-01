@@ -33,15 +33,8 @@ export class DenunciaFormComponent implements OnInit {
   }
 
   submit(): void {
-    debugger
     if (this.formulario?.valid) {
-      var denuncia = this.formulario.value;
-      console.log('Denúncia enviada:', denuncia);
-      console.log('ID do user: ', this.jwtService.getDecodedToken().id);
-      console.log('Status: ', denuncia.status);
-      console.log('Status: ', StatusEnum.PENDENTE.id);
-      
-      
+      var denuncia = this.formulario.value; 
       denuncia.usuarioId = this.jwtService.getDecodedToken().id;
 
       this.denunciaService.createDenuncia(denuncia).subscribe({

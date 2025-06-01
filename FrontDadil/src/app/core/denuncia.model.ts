@@ -5,7 +5,7 @@ export interface Denuncia {
   descricao: string;
   localizacao?: string;
   fotoUrl?: string;
-  status: StatusEnum;
+  status: StatusEnum | number;
   dataCriacao?: Date;
   usuarioId: string;
 }
