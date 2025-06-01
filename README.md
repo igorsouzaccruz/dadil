@@ -29,7 +29,7 @@ DADIL é um sistema web completo para registrar e acompanhar denúncias anônima
 
 - Angular 17+
 - TypeScript
-- Tailwind
+- Tailwind CSS
 - SCSS
 
 ### Infraestrutura
