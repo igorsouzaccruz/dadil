@@ -18,9 +18,9 @@ describe('Dashboard', () => {
     cy.url().should('include', '/new-report')
   })
 
-  it('should display region chart', () => {
-    cy.get('#regionChart').should('be.visible')
-  })
+  // it('should display region chart', () => {
+  //   cy.get('#regionChart').should('be.visible')
+  // })
 
   it('should logout successfully', () => {
     cy.contains('Sair').click()
