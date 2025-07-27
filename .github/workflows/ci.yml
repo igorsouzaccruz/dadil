@@ -1,0 +1,36 @@
+name: DADIL CI - End-to-End Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+    types: [ opened, synchronize, reopened ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v4
+
+      - name: Start services with Docker Compose
+        run: docker-compose up --build -d
+
+      - name: Run Cypress E2E Tests
+        uses: cypress-io/github-action@v6
+        with:
+          working-directory: FrontDadil
+          browser: chrome
+          wait-on: 'http://localhost:4200, http://localhost:5000/swagger'
+          wait-on-timeout: 120 
+
+      - name: Upload test artifacts on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-artifacts
+          path: |
+            FrontDadil/cypress/screenshots
+            FrontDadil/cypress/videos
+      
