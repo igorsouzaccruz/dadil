@@ -15,6 +15,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Start services with Docker Compose
+        working-directory: ./DadilApplication
         run: docker compose up --build -d
 
       - name: Run Cypress E2E Tests
